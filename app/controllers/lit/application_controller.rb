@@ -1,5 +1,7 @@
 module Lit
   class ApplicationController < ActionController::Base
+    skip_before_action :verify_authenticity_token
+
     unless respond_to?(:before_action)
       alias before_action before_filter
       alias after_action after_filter
